@@ -1,0 +1,143 @@
+/*header 头部*/
+body{
+	margin: 0;padding: 0;
+	padding-top: 50px;
+}
+.r-header{
+	
+	width: 100%;
+	height: 60px;
+	background: #5EC2E6;
+	
+	
+}
+/*轮播指示灯*/
+.carousel-indicators li{
+	width:30px;height: 5px;
+	border-radius: 0 0;
+}
+.carousel-indicators li.active{
+	background: orangered;
+
+	width:30px;height: 6px;
+}
+
+#desire{
+	overflow: hidden;
+	width: 100%;
+	background: #F4F4F4;
+	height: 320px;
+	
+}
+#desire .container{
+	position: relative;
+}
+.job{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.desire1{
+	
+	width: 180px;height: 180px;background: #34CF74;border-radius:34% 34%;position: absolute;left:0;top: 60px;
+	text-align: center;line-height: 180px;font-size: 26px;color: #FFFFFF;font-weight: bold;
+		
+}
+.de-code{
+	width: 180px;height: 180px;background: #fff;border-radius: 34% 34%;position: absolute;right: 0px;top: 60px;opacity: 0.6;
+	color: #FF0000;text-align: center;line-height: 180px;font-size: 26px;font-weight: bold;
+}
+.de-first{
+	position: relative;
+	
+}
+.left-box{
+	height: /*320px*/;
+}
+.right-describe{
+	padding-top: 10%;
+
+}
+.mylight{
+	position: absolute;
+	bottom: 0;
+	
+}
+.mylight li{
+	border:1px solid #aaa;
+}
+.skill{
+	position: relative;
+	
+}
+#skils .row{
+	padding:0;overflow:hidden;
+}
+.skill-text{
+	font-size: 26px;
+	position: absolute;left: 50px;top: 36%;
+}
+ .year:nth-child(1){
+	
+	margin: 30px auto 0;font: 16px "微软雅黑" ;
+}
+.year{
+	font: 16px "微软雅黑" ;width: 50%;height: 20px;color: #AAAAAA;margin: 0 auto;
+}
+.year-line {
+	width: 2px;height: 50px;background: #AAAAAA;margin: 0 auto;
+}
+.year-boal{
+	width: 15px;height:15px;border:2px solid #AAAAAA;border-radius: 50% 50%;margin: 0 auto;
+}
+
+.experice-detil-desc{
+	width: 300px;height: 100px;margin-top: 30px;border: 1px dashed #AAAAAA;padding-left: 20px;
+}
+
+
+/*位置*/
+
+#position {
+	width: 100%;height: 300px;background-color: #83D8F7;
+}
+.position-box{
+	width: 100%;height: 300px;background: #83D8F7;margin: 0 auto ;position: relative;
+}
+.position-box .position-dot{
+	width: 50px;height: 50px;border-radius: 50% 50%;opacity: 0.6;position: absolute;left: 38%;top: 100px;background: #fff;
+	position: relative;
+}
+/*娴ｅ秶鐤嗛崗铚傜秼閻愶拷*/
+.position-box .position-dot .position-inline-dot{
+	cursor: pointer;width: 20px;height: 20px;border-radius: 50% 50%;opacity: 1;position: absolute;left:30%;top: 30%;background: #ff0000;
+}  /*鐎电鐦藉鍡樻櫏閺嬶拷*/
+ .position-box .rel-position{
+	cursor: pointer;line-height: 10px;font-size: 20px;color:#50C1E9 ;text-align: center;
+	width: 130px;height: 70px;border-radius: 7% 7%;position: absolute;left:45%;top: 30%;background: #FFFFFF;border: 1px solid #FFFFFF;
+	border-left: none;
+}
+
+/*我的位置里面的三角形显示成一个箭头*/
+#s{
+	width: 0px;
+	border-top:8px solid rgba(0,0,0,0) ;
+	border-left: 16px solid #fff;
+	border-bottom:8px solid rgba(0,0,0,0) ;
+	transform: rotate(180deg);
+	position: absolute;left:44%;top: 40%;
+}
+footer{
+	background: #353841;
+}
+.menu li{
+	display: block;
+}
+
+footer .p{
+	width: 40%;
+	color: #fff;
+	font-size: 14px;
+	margin: 0 auto;
+	text-align: center;
+}

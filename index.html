@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Resume for Zrlee</title>
+		
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/device.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swipe.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/setbs.css"/>
+	</head>
+	
+	<script>
+		$(function (){
+			
+			var mobile = device.mobile() ;
+			if(mobile){
+				//隐藏左右控制按钮
+				$('.left').hide();
+				$('.right').hide();
+				
+				//滑动轮播
+				var slide =  util.toucher(document.getElementById('example-carousel')); 
+				slide.on('swipeLeft',function(e){ 
+					
+    				$('.right').click();	
+				})
+				slide.on('swipeRight',function(e){  
+    				$('.left').click();	
+				});
+				
+				var job_line = util.toucher(document.getElementById('desire'));
+				var job_index = 0 ;
+				job_line.on('swipeRight',function(e){  
+					if(job_index == 0){
+						job_index = 3 ;
+					}
+					job_index = job_index -1 ;
+    				$('.job').eq(job_index).fadeIn(300).siblings().fadeOut(300) ;
+    				$('.mylight li').eq(job_index).addClass('active').siblings().removeClass('active') ;
+				})
+				
+				job_line.on('swipeLeft',function(e){  
+    				if(job_index == 2){
+						job_index =-1 ;
+					}
+					job_index = job_index +1 ;
+    				$('.job').eq(job_index).fadeIn(300).siblings().fadeOut(300) ;
+    				$('.mylight li').eq(job_index).addClass('active').siblings().removeClass('active') ;
+				});
+				
+				
+				
+				
+				//更改图片 高度
+				$('.item img').css({"height":"300"}) ;
+				$('.item img').eq(0).attr('src' , 'img/mobile_phone.jpg');
+				$('.item img').eq(1).attr('src' , 'img/css_mobile.png');
+				$('.item img').eq(2).attr('src' , 'img/html_mobile.jpg');
+				$('.item img').eq(3).attr('src' , 'img/timg.jpg');
+				
+				//控制键
+				$('.carousel-indicators').css({"bottom":"7%"});
+				
+				$('.right-describe p').css({"font-size":"12px"});
+				$('.desire1 , .de-code').css({"width":"100px" , "height":"100px"});
+				$('.desire1').css({"font-size":"16px" ,"line-height":"100px"}) ;
+				$('.de-code').css({"font-size":"16px" ,"line-height":"100px"}) ;
+				$('#desire').css("height","280px");
+				//技能响应
+				$('canvas').css({"width":"120" , "height":"120"});
+				$('.skill-text').css({"left":"40px","font-size":"20px" , "top":"36px"});
+				$('.mobile_exp').show();
+				$('.year-bar , .exp-left').hide();
+					$('.experice-detil-desc').css("margin-top","10px");
+				$('.experice-detil-desc:nth-child(1)').css("margin-top","0px");
+				
+				//位置红点
+				$('.position-dot').css("left","26%");
+				$('#s').css({"left":"40%"});
+				
+				$('footer .p').css("width","100%");
+				
+			}
+			
+			//电脑上
+			var slide_bar = $('.mylight li');
+				slide_bar.hover(function (){
+					var index = $(this).index();
+					$(this).addClass('active');
+					$(this).siblings().removeClass('active');
+					
+					$('.job').eq(index).fadeIn(300).siblings().fadeOut(300) ;
+					
+			} , function (){})
+			//鼠标经过指示灯触发点击	
+			$('.carousel-indicators li').hover(function (){
+				$(this).click();
+			},function (){}) ;
+			
+			
+			var ipad = device.ipad();
+			if(ipad){
+				$('.exp').css("min-width","740px");
+			}
+			
+			for (var i=0 ; i<56 ; i++) {
+				for (var j=0 ; j<20 ; j++) {
+					if(((j+2+i*2)%3)){
+						continue;
+					}
+					var point = document.createElement("div") ;
+					$(point).css({"opacity":"0.3","border-radius":"50% 50%" , "background":"#fdfdfd","width":"10px","height":"10px","position":"absolute" , "right":i*15,"top":j*15});
+					$(".position-box").append(point);
+				}
+			}
+			for (var i=20 ; i<90 ; i++) {
+				for (var j=0 ; j<20 ; j++) {
+					if(((j+i*2)%5)){
+						continue;
+					}
+					var point = document.createElement("div") ;
+					$(point).css({"opacity":"0.3","border-radius":"50% 50%" , "background":"#fdfdfd","width":"10px","height":"10px","position":"absolute" , "right":i*15,"top":j*15});
+					$(".position-box").append(point);
+				}
+			}
+			
+			
+		})
+	</script>
+	
+	<style type="text/css">
+		.carousel-caption{
+			opacity: 0.6;
+			height: 20%;
+			width:100%;
+			background: #000000;
+			position: absolute !important;
+			left: 0;
+			bottom: 0;
+			
+		}
+		.carousel-indicators{
+			position: absolute !important;
+			bottom: 1%;
+			
+		}
+		
+	</style>
+	
+	
+	<body>
+		
+		<div class="container">
+			<nav class='navbar navbar-inverse navbar-fixed-top'>
+				<div class="container">
+					<div class="navbar-header">
+						<!--手机页面隐藏导航按钮-->
+						<button class="navbar-toggle collapsed" 
+							data-target='#mynavbar'
+							data-toggle='collapse'>
+							<!--三个小白条-->
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					
+							
+						<a class="navbar-brand" href="http://resume.zrlee.cn">
+							<img src="img/me.png" class="img-circle" width="50" height="50" />
+							
+						</a>
+						<a class="navbar-brand resume" href="http://resume.zrlee.cn">
+							MyResume
+							
+						</a>
+					<!--navbar-header-->
+					</div>
+					<div id="mynavbar" class="collapse navbar-collapse navbar-right">
+							<ul  class="nav navbar-nav ">
+								<li class="active">
+									<a href="http://resume.zrlee.cn">Home</a>
+								</li>
+								<li >
+									<a href="#" data-toggle="modal" data-target="#contactModal">CONTACT</a>
+								</li>
+								<li class="">
+									<a href="http://wordpress.zrlee.cn">BLOG</a>
+								</li>
+								<li class="">
+									<a href="http://resume.zrlee.cn/say">留言</a>
+								</li>
+								<li class='dropdown'>
+									<a class="dropdown-toggle" data-toggle="dropdown">PROTOULIO
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a>more will be coming</a></li>
+										<li><a>more will be coming</a></li>
+										<li><a>more will be coming</a></li>
+										
+									</ul>
+								</li>
+								
+								
+							</ul>
+						</div>
+				</div>
+			</nav>
+			
+		</div>
+		
+		
+		
+		<!--轮播图-->
+		<!--外部容器-->
+
+		<div id='example-carousel' class="carousel slide" data-ride='carousel'>
+			<!--图片-->
+			<div class="carousel-inner">
+				<div class="item active" >
+					<img src="img/mobile.jpg" style="width:100%;height:500px;"/>
+					<div class="carousel-caption">
+						<h4>Mobile web app & Mobile web site</h4>
+					</div>
+				</div>
+				<div class="item">
+					<img src="img/css.png"style="width:100%;height:500px;"/>
+					<div class="carousel-caption">
+						<h4>CSS3 StyleSheet</h4>
+					</div>
+				</div>
+				<div class="item" >
+					<img src="img/html.jpg" style="width:100%;height:500px;"/>
+					<div class="carousel-caption">
+						<h4>HTML5 in BootStrap</h4>
+					</div>
+				</div>
+				<div class="item" >
+					<img src="img/timg.jpg" style="width:100%;height:500px;"/>
+					<div class="carousel-caption">
+						<h4>PHP+MySQL & ThinkPHP & Yii2</h4>
+					</div>
+				</div>
+				
+				
+				
+				
+			</div>
+			
+			<!--指示灯-->
+			<ol class="carousel-indicators">
+				<li data-target="#example-carousel" data-slide-to="0" class="active"></li>
+				<li data-target="#example-carousel" data-slide-to="1" class=""></li>
+				<li data-target="#example-carousel" data-slide-to="2" class=""></li>
+				<li data-target="#example-carousel" data-slide-to="3" class=""></li>
+			</ol>
+			
+			<!--左右控制-->
+			
+			<a href="#example-carousel" class="left carousel-control" data-slide='prev'>
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			</a>
+			<a href="#example-carousel" class="right carousel-control" data-slide='next'>
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			</a>
+			
+		</div>
+		
+		
+		<!--职位意向-->
+		<div id="desire" style="position: relative;">
+			
+			<ol class="carousel-indicators mylight">
+					<li class="active"></li>
+					<li  class=""></li>
+					<li class=""></li>
+					
+			</ol>
+			<div class="container de-job">
+				
+				<div class="row job">
+					<div id="" class="col-md-5 col-xs-5 col-sm-5 left-box" >
+						<div class="row">
+							<div class="col-md-offset-4 de-first" >
+								<div class="desire1">
+			        				JavaEE
+			        			</div>
+			        			<div class="de-code">
+			        				&nbsp;CODE
+			        			</div>
+							</div>
+						</div>
+					</div>
+					<div id="" class="col-md-7 col-xs-7  col-sm-7 right-box" >
+						<div class="right-describe">
+		        			<p style="font-size: 20px;font-family: '微软雅黑';font-weight: bold;">职业技能</p>
+		        			<p style="font-size: 20px;font-family: '微软雅黑';">PHP后台开发工程师</p>
+		        			<p style="font-size: 14px;font-family: '微软雅黑';">具有独立开发项目的能力，掌握PHP核心基础。熟悉PHP+MySQL模式开发
+		        				。熟悉MVC开发流程以及常用的设计模式。会使用ThinkPHP 、 Yii 、 Smarty 开发CMS系统、个人博客、移动商城等项目。熟练HTML+JavaScript+CSS的应用，了解jQuery
+		        				、AJAX等技术。
+		        			</p>
+		        		</div>
+					</div>
+				</div>
+				
+				
+				<div class="row job" style="display: none;">
+					<div id="" class="col-md-5 col-xs-5 col-sm-5 left-box" >
+						<div class="row">
+							<div class="col-md-offset-4 de-first" >
+								<div class="desire1">
+			        				WEB
+			        			</div>
+			        			<div class="de-code">
+			        				&nbsp;CODE
+			        			</div>
+							</div>
+						</div>
+					</div>
+					<div id="" class="col-md-7 col-xs-7 col-sm-7 right-box" >
+						<div class="right-describe">
+		        			<p style="font-size: 20px;font-family: '微软雅黑';font-weight: bold;">职业技能</p>
+		        			<p style="font-size: 20px;font-family: '微软雅黑';">Web前端开发工程师</p>
+		        			<p style="font-size: 14px;font-family: '微软雅黑';">具有独立开发整站的能力，掌握Web基本开发语言，了解用户体验设计，能够根据美工写出符合要求的页面，
+        				熟悉掌握HTML 、 CSS 、 JavaScript 、 JQUERY.能够运用Bootstrap框架开发响应式网站。
+		        			</p>
+		        		</div>
+					</div>
+				</div>
+				
+				
+				<div class="row job" style="display: none;">
+					<div id="" class="col-md-5 col-xs-5 col-sm-5 left-box" >
+						<div class="row">
+							<div class="col-md-offset-4 de-first" >
+								<div class="desire1">
+			        				Mobile
+			        			</div>
+			        			<div class="de-code">
+			        				&nbsp;CODE
+			        			</div>
+							</div>
+						</div>
+					</div>
+					<div id="" class="col-md-7 col-xs-7 col-sm-7 pull-right" >
+						<div class="right-describe">
+		        			<p style="font-size: 20px;font-family: '微软雅黑';font-weight: bold;">职业技能</p>
+		        			<p style="font-size: 20px;font-family: '微软雅黑';">移动开发工程师</p>
+		        			<p style="font-size: 14px;font-family: '微软雅黑';">熟悉移动开发的流程，会使用Hbuilder+MUI开发安卓/IOS移动应用
+		        				熟悉移动开发的流程，会使用Hbuilder+MUI开发安卓/IOS移动应用熟悉移动开发的流程，会使用Hbuilder+MUI开发安卓/IOS移动应用
+		        			</p>
+		        		</div>
+					</div>
+				</div>
+				
+				<!--<div id="desire">
+		        	<div class="desire-outterbox clear" >
+		        		<div class="left-desire-box col-md-6" >
+		        			<div class="desire1">
+		        				JavaEE
+		        			</div>
+		        			<div class="desire1">
+		        				&nbsp;CODE
+		        			</div>
+		        		</div>
+		        		<div class="right-describe col-md-6">
+		        			<p style="font-size: 20px;font-family: '微软雅黑';font-weight: bold;">求职意向No.1</p>
+		        			<p style="font-size: 20px;font-family: '微软雅黑';">Java/PHP后台开发工程师</p>
+		        			<p style="font-size: 14px;font-family: '微软雅黑';">具有独立开发项目的能力，掌握JavaWeb核心基础。熟悉JSP，Servlet，Tomcat开发
+		        				。熟悉Spring Web MVC开发流程以及常用的设计模式。熟练Oracle、SQL。能够熟练整合Spring+Hibernate+Struts三大框架。熟练HTML+JavaScript+CSS的应用，了解Jquery
+		        				、AJAX等技术。
+		        			</p>
+		        		</div>
+		        	</div>
+		       </div>-->
+				
+			</div>
+		</div>
+		
+		<!--证书-->
+		<div class="container">
+			<!--<ul class="list-group" style='padding: 0 !important;margin: 10px auto 2px !important;'>
+				<li class="active list-group-item">
+					<h4>我的作品 & 证书</h4>
+					<span class='badge'>3</span>
+				</li>
+				
+			</ul>-->
+		    <h3 class="page-header">我的作品 & 证书</h3>
+			<div class="row" >
+				<ul class="list-group col-md-4 col-sm-4 ">
+					<li class="list-group-item list-group-item-info">
+						<h4>好人证</h4>
+					</li>
+					<p>Dapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis in</p>
+					<p>Dapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis in</p>
+					<p>Dapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis in</p>
+					
+					
+				</ul>
+				<ul class="list-group col-md-4 col-sm-4">
+					<li class="list-group-item list-group-item-info">
+						<h4>乐于助人证</h4>
+					</li>
+					<p>Dapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis in</p>
+					<p>Dapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis in</p>
+					<p>Dapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis in</p>
+					
+				</ul>
+				<ul class="list-group col-md-4 col-sm-4">
+					<li class="list-group-item list-group-item-info">
+						<h4>男神证</h4>
+					</li>
+					<p>Dapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis in</p>
+					<p>Dapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis in</p>
+					<p>Dapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis inDapibus ac facilisis in</p>
+					
+				</ul>
+				
+			</div>
+		</div>
+		<!--技能-->
+		<div class="container">
+			<h3 class="page-header">我的技能</h3>
+		
+			<div id="skils">
+	        	
+	        	<p class="skills-desc">
+	        		具有独立开发项目的能力，掌握PHP核心基础。熟悉PHP+MySQL模式开发
+		        				。熟悉MVC开发流程以及常用的设计模式。会使用ThinkPHP 、 Yii 、 Smarty 开发CMS系统、个人博客、移动商城等项目。熟练HTML+JavaScript+CSS的应用，了解jQuery
+		        				、AJAX等技术。
+	        		有良好的编码习惯和注释习惯。
+	        	</p>
+	        	
+	        	<div class="row">
+	        		<div class="skill col-md-4 col-xs-4 col-sm-4">
+	        			<canvas id="canvas1" width="160" height="160" >
+	        				
+	        			</canvas>
+	        			<div class="skill-text">
+	        				<span>80%</span>
+	        				<p style="font-family: '微软雅黑';font-size: 16px;">&nbsp;&nbsp;PHP</p>
+	        			</div>
+	        		</div>
+	        		<div class="skill col-md-4 col-xs-4 col-sm-4">
+	        			<canvas id="canvas2" width="160" height="160" >
+	        				
+	        			</canvas>
+	        			<div class="skill-text">
+	        				<span>80%</span>
+	        				<p style="font-family: '微软雅黑';font-size: 16px;">&nbsp;&nbsp;Web</p>
+	        			</div>
+	        		</div>
+	        		<div class="skill col-md-4 col-xs-4 col-sm-4">
+	        			<canvas id="canvas3" width="160" height="160" >
+	        				
+	        			</canvas>
+	        			<div class="skill-text">
+	        				<span>60%</span>
+	        				<p style="font-family: '微软雅黑';font-size: 16px;">&nbsp;&nbsp;Mobile</p>
+	        			</div>
+	        		</div>
+	        		
+	        	</div>
+	        	
+	        	
+	        	
+	        </div>
+		</div>
+		
+		<!--经历-->
+		<div class="container">
+			<h3 class="page-header mobile_exp" >校内经历</h3>
+			<div class="row exp">
+				
+				<div class="exp-left col-md-5 col-xs-5 ">
+					
+					<div class="exp-left pull-right" style="position: relative;width: 100%;" >
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<p class="lead" style="padding-left: 100px;">校内经历</p>
+						<br>
+						<br>
+						<br>
+						<p class="lead" style="font-size: 14px;padding-left: 100px;">校内经历，担任职位，职位具体工作，校园社会实践，社会工作经验等等</p>
+						<br>
+						<br>
+						<br>
+						<button class="btn btn-primary" style="margin-left: 100px;">等待更新</button>
+					</div>
+				</div>
+				
+				<div class="col-md-2 year-bar col-xs-2" >
+					<div class="year">
+        					2015
+        				</div>
+        				<div class="year-line">
+        					
+        				</div>
+        				<div class="year-boal">
+        					
+        				</div>
+        				<div class="year-line">
+        					
+        				</div>
+        				<div class="year">
+        					2016
+        				</div>
+        				<div class="year-line">
+        					
+        				</div>
+        				<div class="year-boal">
+        					
+        				</div>
+        				<div class="year-line">
+        					
+        				</div>
+        				<div class="year-boal">
+        					
+        				</div>
+        				<div class="year-line">
+        					
+        				</div>
+        				<div class="year">
+        					2017
+        				</div>
+        				<div class="year-line">
+        					
+        				</div>
+        				<div class="year-boal">
+        					
+        				</div>
+        				<div class="year-line">
+        					
+        				</div>
+				</div>
+				
+				<div class="col-md-5 col-xs-5">
+					<div class="experice-detil-desc">
+    					<p style="font-family: '微软雅黑';">入侵广东石油化工学院</p>
+    					<p style="font:12px '微软雅黑';">加入创新实验室团队<br>学习Java,前端,并顺利考取二级证书</p>
+    				</div>
+    				<div class="experice-detil-desc">
+    					<p  style="font-family: '微软雅黑';">踏入JavaEE企业轻量级开发</p>
+    					<p style="font:12px '微软雅黑';">学习JavaEE ，数据库 ，网络技术，并顺利考取三级网络技术</p>
+    				</div>
+    				<div class="experice-detil-desc">
+    					<p  style="font-family: '微软雅黑';">码神争霸大赛</p>
+    					<p style="font:12px '微软雅黑';">负责项目整站的开发,编写项目所需要的前台静态页面,----这是链接---就不给你看</p>
+    				</div>
+    				<div class="experice-detil-desc">
+    					<p  style="font-family: '微软雅黑';">Loading......</p>
+    				</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		
+		<!--位置-->
+		<div id="position">
+
+			
+		
+			<div class="container">
+				<div class="position-box">
+	        		<a target="_blank" href="http://map.sogou.com/#c=12346390,2455328,12&lq=%u8302%u540D&where=8008000,1816000,15880000,6488000,0&page=1,10"> 
+		        		<div class="position-dot">
+		        			<div class="position-inline-dot">
+		        				
+		        			</div>
+		        		</div>
+		        		<div class="rel-position">
+		        			<br>
+		        				<br>
+		        			<p>我的位置</p>
+		        			<p>茂名</p>
+		        		</div>
+		        		<div id="s">
+					
+						</div>
+					</a>
+	        	</div>
+			</div>
+		
+		
+		</div>
+	
+		<!--footer-->
+		
+		<footer>
+			<div class="container">
+			<br>
+				<p class="p">Copyright © 2016 - 2017 The zrlee Foundation. All Rights Reserved.
+粤ICP备16075339号 </p>
+			</div>
+		</footer>
+		
+		
+		
+		
+		
+		
+		
+		<!--Modal-->
+		<div class="modal fade" id="contactModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="modal-title">
+							<span class="close" data-dismiss='modal'>&times;</span>
+							<h3 class="modal-title">联系方式</h3>
+						</div>
+					</div>
+					
+					<div class="modal-body">
+						<form action="" method="post">
+							<div class="row">
+								<div class="form-group col-md-8 col-md-offset-2">
+									<div id="" style="width: 80%;">
+										<div id=""style="width: 40px;height: 40px;
+												border-radius: 50% 50%;
+												-webkit-border-radius: 50% 50%;
+												-o-border-radius: 50% 50%;
+												-moz-border-radius: 50% 50%;
+												margin-left:5px ;
+												float: left;
+												">
+												<img src="img/mail.png" width="30" height="30" />
+												
+										</div>
+										<span style="float: left;">13005564315@163.com</span>
+									</div>
+									<div class="" style="clear: both;">
+										
+									</div>
+									<div id="" style="width: 80%;">
+										<div id=""style="width: 40px;height: 40px;
+												border-radius: 50% 50%;
+												-webkit-border-radius: 50% 50%;
+												-o-border-radius: 50% 50%;
+												-moz-border-radius: 50% 50%;
+												margin-left:5px ;
+												float: left;
+												">
+												<img src="img/phone.png" width="30" height="30" />
+												
+										</div>
+										<span style="float: left;">13005564315</span>
+									</div>
+									<div class="" style="clear: both;">
+										
+									</div>
+									<div id="" style="width: 80%;">
+										<div id=""style="width: 40px;height: 40px;
+												border-radius: 50% 50%;
+												-webkit-border-radius: 50% 50%;
+												-o-border-radius: 50% 50%;
+												-moz-border-radius: 50% 50%;
+												margin-left:5px ;
+												float: left;
+												">
+												<img src="img/wechat.png" width="30" height="30" />
+												
+										</div>
+										<span style="float: left;">zrlee_cn</span>
+									</div>
+									<div class="" style="clear: both;">
+										
+									</div>
+									<div id="" style="width: 80%;">
+										<div id=""style="width: 40px;height: 40px;
+												border-radius: 50% 50%;
+												-webkit-border-radius: 50% 50%;
+												-o-border-radius: 50% 50%;
+												-moz-border-radius: 50% 50%;
+												margin-left:5px ;
+												float: left;
+												">
+												<img src="img/qq.png" width="30" height="30" />
+												
+										</div>
+										<p style="float: left;">45418406</p>
+									</div>
+									<div class="" style="clear: both;">
+										
+									</div>
+									
+									
+								
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="modal-footer">
+						<input type="button" class="btn btn-success" data-dismiss='modal' value="Cancel" />
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
+	</body>
+
+</html>
+<script type="text/javascript">
+		var canvas1 = document.getElementById('canvas1') ;
+		var txt1 = canvas1.getContext("2d") ;
+		txt1.lineWidth="8";
+		txt1.strokeStyle="#35AFBA";
+		
+		txt1.arc(65 , 80 , 60 , 0 ,Math.PI*1.6 , false) ;
+		txt1.rotate(-50*Math.PI/180);
+		txt1.stroke();
+		
+		
+		var canvas2 = document.getElementById('canvas2') ;
+		var txt2 = canvas2.getContext("2d") ;
+		txt2.lineWidth="8";
+		txt2.strokeStyle="#34CF74";
+		
+		txt2.arc(65 , 80, 60 , 0 ,Math.PI*2*0.75 , false) ;
+		
+		txt2.stroke();
+		
+		
+		var canvas3 = document.getElementById('canvas3') ;
+		var txt3 = canvas3.getContext("2d") ;
+		txt3.lineWidth="8";
+		txt3.strokeStyle="#26AE62";
+		
+		txt3.arc(65 , 80 , 60 , 0 ,Math.PI*1.2 , false) ;
+		txt1.arc
+		
+		txt3.stroke();
+		
+		
+		var incre ;
+	var valueof ;
+	var intdexof ;
+	var isUndefine ;
+	$(".skill").hover(function(){
+		
+		var index = $(this).index() ;
+		intdexof = index ;
+		var value = 0 ; 
+		var _text = $(".skill:nth-child("+(index+1)+") span");
+		var textvalue = _text.text() ;
+		if( (isUndefine = textvalue.substring(0,2) )=="0%"){
+			return ;
+		}
+		var _number =new Number(textvalue.substring(0,2))   ;
+		_number = _number ;
+		valueof = _number ;
+		_text.text("0%") ;
+		incre = setInterval(function(){
+			_text.text(value+"%") ;
+			value++ ;
+			if(value==_number+1){
+				clearInterval(incre);
+				return ;
+			}
+		} , 10);
+	} , function(){
+		
+		clearInterval(incre);
+		if(isUndefine=="0%"){
+			return ;
+		}
+		$(".skill:nth-child("+(intdexof+1)+") span").text(valueof+"%");
+	})
+		
+		
+	</script>
